@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "editable_failure"
+description = "Demonstration of editable installation pathologies when using Poetry."
+authors = ["Matthew Wardrop <mpwardrop@gmail.com>"]
+version = "0.0.1"
+license = "Public Domain"
+packages = [
+    { include = "editable_failure" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+
+[tool.poetry.build]
+script = "build.py"
+generate-setup-file = true
+
+[build-system]
+requires = [
+    "poetry-core",
+    # "poetry-core @ git+https://github.com/matthewwardrop/poetry-core.git@fix_editable_installs",  # Uncomment to fix things.
+    "pybind11>=2.8.0",
+    "setuptools>=60",
+]
+build-backend = "poetry.core.masonry.api"
